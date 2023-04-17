@@ -1,0 +1,42 @@
+import 'dart:async';
+import 'package:gestion_achat/Pages/formulaire.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 5), ()=> Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (BuildContext context) => ClientFormPage()))); 
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset(
+              'img/lab_logo.png',
+              height: 200.0,
+              width: 200.0,
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            CircularProgressIndicator(),
+          ],
+        ),
+      ),
+    );
+  }
+}
